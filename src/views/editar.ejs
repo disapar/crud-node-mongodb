@@ -1,0 +1,10 @@
+<%- include ("./partes/_header") %> 
+<div class="container">
+    <h2>Editar tarea</h2>
+    <form action="/editar/<%= tarea._id %>" class="centrado"  method="POST">
+        <input type="text" name="title" class="input" placeholder="Inserte un titulo" value="<%= tarea.title %>">
+        <textarea name="description"  cols="80"  class="input"    placeholder="Inserte una descripción" ><%= tarea.description %></textarea>
+        <input class="btn" type="submit" value="Modificar datos">
+    </form>
+</div>
+<%- include ('./partes/_footer') %>

@@ -1,0 +1,36 @@
+<%- include ("./partes/_header") %> 
+   
+    
+    <div class="container">
+        <h2>CRUD NodeJs MongoDB</h2>
+        <form action="/agregar" class="media"  method="POST">
+            <input type="text" name="title" class="input" placeholder="Inserte un titulo">
+            <textarea name="description"  cols="80"  class="input" placeholder="Inserte una descripción"></textarea>
+            <input class="btn" type="submit" value="Ingresar datos">
+        </form>
+    <table class="media">
+        <thead class="tablehead">
+            <tr>
+                <th>N°</th>
+                <th>Titulo</th>
+                <th>descripción</th>
+                <th>Operaciones</th>
+            </tr>
+        </thead>
+        <tbody class="tablabody">
+            <%  for(var i = 0; i < tareas.length; i++  ){%>
+            <tr>
+                <th><p><%= i + 1 %></p> </th>
+                <th><p><%= tareas[i].title %> </p></th>
+                <th><p><%= tareas[i].description %> </p></th>
+                <th class="opciones">
+                    <a href="/estado/<%= tareas[i]._id %>" class="btne <%= tareas[i].status ? 'verde' : 'negro'  %>">Hecho</a>
+                    <a href="/borrar/<%= tareas[i]._id %>" class="btne rojo">Borrar</a>
+                    <a href="/editar/<%= tareas[i]._id %>" class="btne azul">Editar</a>
+                </th>
+            </tr>
+            <% } %> 
+        </tbody>
+    </table>
+    </div>
+<%- include ('./partes/_footer') %> 
